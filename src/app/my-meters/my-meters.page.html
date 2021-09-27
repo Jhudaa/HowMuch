@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      My Meters
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let meter of meters">
+      <ion-item>
+        <ion-thumbnail *ngIf="meter.thumbnail" slot="start">
+          <ion-img [src]="meter.thumbnail"></ion-img>
+        </ion-thumbnail>
+        <ion-icon *ngIf="!meter.thumbnail"></ion-icon>
+        <ion-label>{{meter.meterName}}</ion-label>
+        <ion-item>{{meter.meterCount}}</ion-item>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="edit(item)"> <ion-icon name="ellipsis-horizontal-outline"></ion-icon></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+   </ion-list> 
+   <ion-button href="/count"> <ion-icon name="add"></ion-icon></ion-button>
+</ion-content>
+

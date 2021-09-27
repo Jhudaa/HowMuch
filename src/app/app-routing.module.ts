@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'count',
+    loadChildren: () => import('./count/count.module').then( m => m.CountPageModule)
+  },
+  {
+    path: 'my-meters',
+    loadChildren: () => import('./my-meters/my-meters.module').then( m => m.MyMetersPageModule)
+  },
 ];
 
 @NgModule({

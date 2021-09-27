@@ -25,6 +25,24 @@
       </ion-item-options>
     </ion-item-sliding>
    </ion-list> 
+
+   <ion-list>
+    <ion-item-sliding *ngFor="let meter of customMeter">
+      <ion-item>
+        <ion-thumbnail *ngIf="meter.thumbnail" slot="start">
+          <ion-img [src]="meter.thumbnail"></ion-img>
+        </ion-thumbnail>
+        <ion-icon *ngIf="!meter.thumbnail"></ion-icon>
+        <ion-label>{{meter.meterName}}</ion-label>
+        <ion-item>{{meter.countValue}}</ion-item>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="edit(item)"> <ion-icon name="ellipsis-horizontal-outline"></ion-icon></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+   </ion-list> 
+
    <ion-button href="/count"> <ion-icon name="add"></ion-icon></ion-button>
+
 </ion-content>
 

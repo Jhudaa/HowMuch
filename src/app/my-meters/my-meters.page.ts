@@ -11,13 +11,17 @@ export class MyMetersPage implements OnInit {
   constructor(private MyMeterService:MyMeterService) { }
 
   meters:Meter[];
+  customMeter = [];
 
   ngOnInit() {
     this.meters = this.MyMeterService.getAll();
+    this.customMeter = this.getAllCustomInput();
   }
 
-  edit(item:object) {
+  getAllCustomInput () {
+    this.customMeter = this.MyMeterService.getAllCustomInput();
 
+    return this.customMeter;
   }
 
 }

@@ -1,0 +1,46 @@
+.cust-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .meter-title{
+    display: flex;
+    justify-content: center;
+    width: 30em;
+    text-align: center;
+    margin: 2em 0;
+    font-size: 2.125em;
+  }
+}
+
+.circle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  width: 30em;
+  height: 30em;
+  border-radius: 50%;
+
+  .number {
+    color: white;
+    text-align: center;
+    font-size: 12em;
+  }
+}
+
+.count-btn-container {
+  display: flex;
+  width: 30em;
+  justify-content: center;
+  margin-top: 3em;
+
+  .remove-count-btn {
+    margin-right: 2em;
+  }
+
+  .validate-count-btn {
+    margin-left: 2em;
+  }
+}

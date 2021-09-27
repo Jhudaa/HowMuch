@@ -10,11 +10,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-input></ion-input>
-<div class="circle-container">
-  <div class="number">test</div>
-</div>
-<ion-button> <ion-icon name="remove" class="remove-count-btn"></ion-icon></ion-button>
-<ion-button> <ion-icon name="add" class="add-count-btn"></ion-icon></ion-button>
-<ion-button> <ion-icon name="checkmark" class="validate-count-btn"></ion-icon></ion-button>
+  <div class="cust-container">
+    <ion-input [(ngModel)]="meterName" placeholder="Type meter name" class="meter-title"></ion-input>
+    <div class="circle-container">
+      <div class="number">
+        <ion-input [(ngModel)]="count" value='{{count}}'>  </ion-input> 
+      </div>
+    </div>
+    <div class="count-btn-container">
+      <ion-button (click)='removeOne()' class="remove-count-btn count-btn"> <ion-icon name="remove"></ion-icon></ion-button>
+      <ion-button (click)='plusOne()' class="add-count-btn count-btn" > <ion-icon name="add"></ion-icon></ion-button>
+      <ion-button (click)="validateCount()" href="/my-meters" class="validate-count-btn count-btn"> <ion-icon name="checkmark"></ion-icon></ion-button>
+    </div>
+  </div>
 </ion-content>

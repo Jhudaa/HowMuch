@@ -10,10 +10,30 @@ export class CountPage implements OnInit {
 
   constructor(private MyMeterService:MyMeterService) { }
 
-  meters:Meter[];
-
+  count = 0;
+  meterName = '';
+  
   ngOnInit() {
-    this.meters = this.MyMeterService.getAll();
   }
 
+  /**
+   * Call plusOne from my-meter.service 
+   */
+  plusOne(){
+    this.count = this.MyMeterService.plusOne();
+  }
+
+  /**
+   * Call removeOne from my-meter.service 
+   */
+  removeOne(){
+    this.count = this.MyMeterService.removeOne();
+  }
+
+  /**
+   * Call validateCount from my-meter.service with the name enter in the input
+   */
+  validateCount(){
+    this.MyMeterService.validateCount(this.meterName);
+  }
 }

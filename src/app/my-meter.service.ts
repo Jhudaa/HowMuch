@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 export interface Meter {
-  id: string;
+  id?: string;
   meterName: string;
   meterCount: number;
   thumbnail?: string;
@@ -20,7 +20,67 @@ export class MyMeterService {
 
   constructor() { }
 
+  meters:Meter[];
+  customMeter = [];
+  count = 0;
+
   getAll(){
     return [...mockMeter];
+  }
+
+  /**
+   * add +1 to the count
+   */
+   plusOne(){
+    this.count = this.count +1 ;
+    console.log('cliquer sur le add button');
+    return this.count;
+  }
+
+  /**
+   * Remove one to the count
+   */
+  removeOne(){
+    this.count = this.count - 1 ;
+    console.log('cliquer sur le remove button');
+    return this.count;
+  }
+
+  /**
+   * Fonction to validate the count and create the new meter with is name and count value
+   */
+  validateCount(meterName){
+    let data = {
+        countValue: this.count
+    };
+    let meterCount = JSON.stringify(data);
+    localStorage.setItem(meterName , meterCount);
+  }
+
+  /**
+   * get the elements of the localStorage
+   * @returns array with meterName + countValue
+   */
+  getAllCustomInput () {
+    let keys = Object.keys(localStorage);
+    console.log(keys);
+
+    keys.forEach(elt => {
+      let json = localStorage.getItem(elt);
+      const data = JSON.parse(json);
+      let meterCount = data.countValue;
+      let dataMeter = {
+        meterName: elt,
+        countValue: meterCount
+      }
+      this.customMeter.push(dataMeter);
+      console.log(this.customMeter);
+    });
+
+    return this.customMeter;
+  }
+
+  edit(item:object) {
+
   }
 }

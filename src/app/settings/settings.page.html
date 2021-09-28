@@ -1,3 +1,4 @@
+<!-- Add the menu to this page and a title -->
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -10,5 +11,7 @@
 </ion-header>
 
 <ion-content>
- <ion-button (click)="localStorageDeleteAlert('localStorageClear')" color="secondary"> Clear localStorage </ion-button>
+  <div class="cust-container">
+    <ion-button (click)="localStorageDeleteAlert('localStorageClear')" color="secondary"> Clear localStorage </ion-button>
+  </div>
 </ion-content>

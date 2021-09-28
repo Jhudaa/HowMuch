@@ -19,6 +19,9 @@ export interface Meter {
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * class create to manage method from count page, setting, my meters and alerts
+ */
 export class MyMeterService {
 
   constructor(private toastController: ToastController, private alertController: AlertController) { }
@@ -120,7 +123,7 @@ export class MyMeterService {
 
   /**
    * Toast to confirm delete
-   * @param deleteMessage specific message used to be display
+   * @param deleteMessage specific message used to be displayed
    */
    async deleteConfirmationToast(deleteMessage) {
     const toast = await this.toastController.create({
@@ -131,6 +134,10 @@ export class MyMeterService {
    toast.present();
   }
 
+  /**
+   * delte with different case depending where they come from
+   * @param value string where the delete come from
+   */
   delete(value) {
     switch (value) {
       case 'localStorageClear':

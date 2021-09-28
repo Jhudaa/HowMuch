@@ -11,6 +11,9 @@ export interface Page {
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
+/**
+ * create info for each page in the menu
+ */
 export class AppComponent {
   public selectedIndex = 0;
   public appPages:Page[] = [

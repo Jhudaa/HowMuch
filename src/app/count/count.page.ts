@@ -6,6 +6,9 @@ import { MyMeterService } from '../my-meter.service';
   templateUrl: './count.page.html',
   styleUrls: ['./count.page.scss'],
 })
+/**
+ * Management of the meter (add/remove/validate) 
+ */
 export class CountPage implements OnInit {
 
   constructor(private MyMeterService:MyMeterService) { }

@@ -12,7 +12,7 @@
 <ion-content>
   <ion-list>
     <ion-item-sliding *ngFor="let meter of meters">
-      <ion-item color="primary">
+      <ion-item>
         <ion-thumbnail *ngIf="meter.thumbnail" slot="start">
           <ion-img [src]="meter.thumbnail"></ion-img>
         </ion-thumbnail>
@@ -21,23 +21,29 @@
         <ion-item>{{meter.meterCount}}</ion-item>
       </ion-item>
       <ion-item-options side="end">
-        <ion-item-option (click)="edit(item)" color="secondary"> <ion-icon name="ellipsis-horizontal-outline" ></ion-icon></ion-item-option>
+        <ion-item-option color="secondary"> <ion-icon name="ellipsis-horizontal-outline" ></ion-icon></ion-item-option>
+        <ion-item-option > <ion-icon name="trash"></ion-icon></ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
    </ion-list> 
 
    <ion-list>
+     <!-- loop on the different meters registered in the localStorage -->
     <ion-item-sliding *ngFor="let meter of customMeter">
       <ion-item>
+        <!-- if the is a thumbnail display it -->
         <ion-thumbnail *ngIf="meter.thumbnail" slot="start">
           <ion-img [src]="meter.thumbnail"></ion-img>
         </ion-thumbnail>
+        <!-- if there is no thumbnail icon stay empty -->
         <ion-icon *ngIf="!meter.thumbnail"></ion-icon>
         <ion-label>{{meter.meterName}}</ion-label>
         <ion-item>{{meter.countValue}}</ion-item>
       </ion-item>
+      <!-- create a slide to display more option -->
       <ion-item-options side="end">
-        <ion-item-option (click)="edit(item)" color="secondary"> <ion-icon name="ellipsis-horizontal-outline" color="secondary"></ion-icon></ion-item-option>
+        <ion-item-option color="secondary"> <ion-icon name="ellipsis-horizontal-outline"></ion-icon></ion-item-option>
+        <ion-item-option> <ion-icon name="trash"></ion-icon></ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
    </ion-list> 

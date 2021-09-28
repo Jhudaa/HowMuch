@@ -11,13 +11,16 @@
 
 <ion-content>
   <div class="cust-container">
+    <!-- get the meterName to store it when validating the meter -->
     <ion-input [(ngModel)]="meterName" placeholder="Type meter name" class="meter-title"></ion-input>
     <div class="circle-container">
       <div class="number">
         <ion-input [(ngModel)]="count" value='{{count}}'>  </ion-input> 
       </div>
     </div>
+    <!-- container for my action buttons on the meter -->
     <div class="count-btn-container">
+      <!-- call the remove, add, validate method on click -->
       <ion-button (click)='removeOne()' class="remove-count-btn" color="secondary"> <ion-icon name="remove"></ion-icon></ion-button>
       <ion-button (click)='plusOne()' class="add-count-btn" color="secondary" > <ion-icon name="add"></ion-icon></ion-button>
       <ion-button (click)="validateCount()" href="/my-meters" class="validate-count-btn" color="secondary"> <ion-icon name="checkmark"></ion-icon></ion-button>

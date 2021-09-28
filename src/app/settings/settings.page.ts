@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController} from '@ionic/angular';
+import {AlertController, ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-settings',
@@ -8,15 +8,38 @@ import {AlertController} from '@ionic/angular';
 })
 export class SettingsPage implements OnInit {
 
-  constructor(private alertController: AlertController) { }
+    value:string = '';
+
+  constructor(private alertController: AlertController, private toastController: ToastController) { }
 
   ngOnInit() {
   }
 
-  async presentDeleteAlert() {
+  /**
+   * clear totality of localStorage witch custom message
+   */
+   clearLocalStorage(){
+    let message = 'Toutes vos fiches ont été supprimées';
+    localStorage.clear();
+    this.deleteConfirmationToast(message);
+  }
+  
+  /**
+   * Modal display to confirm delete 
+   * @param value used to check where where called the method to display specific message
+   */
+  async localStorageDeleteAlert(value) {
+    console.log(value);
+    let headerMessage ='';
+    if (value === 'localStorageClear') {
+      headerMessage = 'Attention vous allez supprimer toutes vos fiches';
+    } else {
+      headerMessage = 'Attention vous êtes sur le point de procéder à une suppression'
+    }
+
     const alert = await this.alertController.create({
       cssClass: 'alertDelete',
-      header: 'Attention vous allez supprimer toutes vos fiches',
+      header: headerMessage,
       subHeader: 'Veuillez confirmer',
       message: 'Cette action est iréversible',
       buttons: [
@@ -33,7 +56,17 @@ export class SettingsPage implements OnInit {
     await alert.present();
   }
 
-  clearLocalStorage(){
-    localStorage.clear();
+  /**
+   * Toast to confirm delete
+   * @param deleteMessage specific message used to be display
+   */
+  async deleteConfirmationToast(deleteMessage) {
+    const toast = await this.toastController.create({
+      message: deleteMessage,
+      duration: 1000,
+      position: 'top'
+    });
+   toast.present();
   }
+  
 }

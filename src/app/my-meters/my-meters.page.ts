@@ -8,20 +8,29 @@ import { Meter, MyMeterService } from '../my-meter.service';
 })
 export class MyMetersPage implements OnInit {
   
-  constructor(private MyMeterService:MyMeterService) { }
+  constructor(private myMeterService:MyMeterService) { }
 
   meters:Meter[];
   customMeter = [];
-
+  //get all my meter. This meters is for demon only
   ngOnInit() {
-    this.meters = this.MyMeterService.getAll();
+    this.meters = this.myMeterService.getAll();
     this.customMeter = this.getAllCustomInput();
   }
 
+  //to get all the custom meter from myMeterService
   getAllCustomInput () {
-    this.customMeter = this.MyMeterService.getAllCustomInput();
+    this.customMeter = this.myMeterService.getAllCustomInput();
 
     return this.customMeter;
+  }
+
+  /**
+   * delete one selected meter
+   * @param value the key of the meter to delete
+   */
+  deleteMeter(value:string){
+    this.myMeterService.deleteMeter(value);
   }
 
 }

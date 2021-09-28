@@ -43,7 +43,11 @@
       <!-- create a slide to display more option -->
       <ion-item-options side="end">
         <ion-item-option color="secondary"> <ion-icon name="ellipsis-horizontal-outline"></ion-icon></ion-item-option>
-        <ion-item-option> <ion-icon name="trash"></ion-icon></ion-item-option>
+        <ion-item-option> 
+          <ion-button (click)="deleteMeter(meter.meterName)"> 
+            <ion-icon name="trash"></ion-icon> 
+          </ion-button>
+        </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
    </ion-list> 

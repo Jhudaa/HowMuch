@@ -62,15 +62,20 @@ export class MyMeterService {
     return this.count;
   }
 
+  //TODO : le if ne fonctionne pas
   /**
    * Fonction to validate the count and create the new meter with is name and count value
    */
-  validateCount(meterName){
-    let data = {
+  validateCount(meterName:string){
+    if (meterName) {
+      let data = {
         countValue: this.count
     };
     let meterCount = JSON.stringify(data);
     localStorage.setItem(meterName , meterCount);
+    } else {
+      console.log('pas de nom renseigné');
+    }
   }
 
   /**
@@ -100,7 +105,7 @@ export class MyMeterService {
    * Modal display to confirm delete 
    * @param value used to check where where called the method to display specific message
    */
-   async DeleteAlert(value) {
+   async DeleteAlert(value:string) {
     let headerMessage ='';
     if (value === 'localStorageClear') {
       headerMessage = 'Attention vous allez supprimer toutes vos fiches';
@@ -131,20 +136,21 @@ export class MyMeterService {
    * Toast to confirm delete
    * @param deleteMessage specific message used to be displayed
    */
-   async deleteConfirmationToast(deleteMessage) {
+   async deleteConfirmationToast(deleteMessage:string) {
+     window.location.reload();
     const toast = await this.toastController.create({
       message: deleteMessage,
       duration: 1000,
       position: 'top'
     });
-   toast.present();
+    toast.present();
   }
 
   /**
-   * delte with different case depending where they come from
+   * delete with different case depending where they come from
    * @param value string where the delete come from
    */
-  delete(value) {
+  delete(value:string) {
     switch (value) {
       case 'localStorageClear':
         this.clearLocalStorage();
@@ -153,7 +159,7 @@ export class MyMeterService {
         console.log('suppression par default à coder');
     }
   }
-  
+
    /**
    * clear totality of localStorage witch custom message
    */
@@ -163,7 +169,15 @@ export class MyMeterService {
       this.deleteConfirmationToast(message);
     }
 
-  edit(item:object) {
+    deleteMeter(value:string){
+      console.log(value);
+      localStorage.removeItem(value);
+      let message = 'Le compteur ' + value + ' à été effacé ! '
+      this.deleteConfirmationToast(message);
+    }
 
-  }
+  //TODO : faire la fonction pour editer les meters
+  /*edit(item:object) {
+
+  }*/
 }

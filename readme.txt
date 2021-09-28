@@ -13,3 +13,4 @@ The problems encountered
 Improvements planned :
  - add an export function to export all meters or only selected one
  - possibilities to take picture and add them as meter thumbnail
+ - prevent the save of meter if no name or no countValue

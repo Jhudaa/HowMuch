@@ -11,7 +11,13 @@
 </ion-header>
 
 <ion-content>
-  <div class="cust-container">
-    <ion-button (click)="localStorageDeleteAlert('localStorageClear')" color="secondary"> Clear localStorage </ion-button>
+  <!-- custom container in global.scss to align in the center of the page -->
+  <div class="fullscreen">
+    <div class="cust-container">
+      <div class="settings-parameters">
+        <ion-img src="assets/icon/circle-icon-gear.png" class="gear"></ion-img>
+        <ion-button (click)="localStorageDeleteAlert('localStorageClear')" color="secondary"> Clear localStorage </ion-button>
+      </div>
+    </div>
   </div>
 </ion-content>

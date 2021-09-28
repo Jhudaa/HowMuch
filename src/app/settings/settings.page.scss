@@ -1,4 +1,10 @@
-.cust-container{
+.settings-parameters {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  .gear{
+    margin-bottom: 2em;
+    height: 9.375em;
+  }
 }

@@ -20,7 +20,7 @@ export interface Meter {
   providedIn: 'root'
 })
 /**
- * class create to manage method from count page, setting, my meters and alerts
+ * class create to manage method from count page, setting, my
  */
 export class MyMeterService {
 
@@ -42,16 +42,22 @@ export class MyMeterService {
   /**
    * add +1 to the count
    */
-   plusOne(){
-    this.count = this.count +1 ;
-    this.hapticsVibrate();
+   plusOne(count?:number){
+     if (count) {
+      this.count = count;
+     }
+     this.count = this.count +1 ;
+     this.hapticsVibrate();
     return this.count;
   }
 
   /**
    * Remove one to the count
    */
-  removeOne(){
+  removeOne(count?:number){
+    if (count) {
+      this.count = count;
+    }
     this.count = this.count - 1 ;
     return this.count;
   }
@@ -147,6 +153,7 @@ export class MyMeterService {
         console.log('suppression par default à coder');
     }
   }
+  
    /**
    * clear totality of localStorage witch custom message
    */

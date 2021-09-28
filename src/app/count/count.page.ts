@@ -11,9 +11,12 @@ import { MyMeterService } from '../my-meter.service';
  */
 export class CountPage implements OnInit {
 
-  constructor(private MyMeterService:MyMeterService) { }
+  
+  constructor(public myMeterService:MyMeterService) 
+  { 
+    myMeterService = this.myMeterService; 
+  }
 
-  count = 0;
   meterName = '';
   
   ngOnInit() {
@@ -22,21 +25,21 @@ export class CountPage implements OnInit {
   /**
    * Call plusOne from my-meter.service 
    */
-  plusOne(){
-    this.count = this.MyMeterService.plusOne();
+  plusOne(count){
+    this.myMeterService.plusOne(count);
   }
 
   /**
    * Call removeOne from my-meter.service 
    */
-  removeOne(){
-    this.count = this.MyMeterService.removeOne();
+  removeOne(count){
+    this.myMeterService.removeOne(count);
   }
 
   /**
    * Call validateCount from my-meter.service with the name enter in the input
    */
   validateCount(){
-    this.MyMeterService.validateCount(this.meterName);
+    this.myMeterService.validateCount(this.meterName);
   }
 }

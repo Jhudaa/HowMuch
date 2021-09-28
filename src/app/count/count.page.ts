@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meter, MyMeterService } from '../my-meter.service';
+import { MyMeterService } from '../my-meter.service';
 
 @Component({
   selector: 'app-count',

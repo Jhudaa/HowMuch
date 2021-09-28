@@ -28,6 +28,11 @@ export class AppComponent {
       title: 'My meters',
       url: '/my-meters',
       icon: 'list'
+    },
+    {
+      title: 'Settings',
+      url: '/settings',
+      icon: 'cog'
     }
   ]
   constructor() {}

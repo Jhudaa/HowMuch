@@ -1,3 +1,5 @@
+$cst-width: 25em;
+
 .cust-container {
   display: flex;
   flex-direction: column;
@@ -7,7 +9,7 @@
   .meter-title{
     display: flex;
     justify-content: center;
-    width: 30em;
+    width: $cst-width;
     text-align: center;
     margin: 2em 0;
     font-size: 2.125em;
@@ -19,8 +21,8 @@
   align-items: center;
   justify-content: center;
   background-color: var(--primary-color);
-  width: 30em;
-  height: 30em;
+  max-width: $cst-width;
+  height: $cst-width;
   border-radius: 50%;
 
   .number {
@@ -32,7 +34,7 @@
 
 .count-btn-container {
   display: flex;
-  width: 30em;
+  width: $cst-width;
   justify-content: center;
   margin-top: 3em;
 
@@ -42,5 +44,20 @@
 
   .validate-count-btn {
     margin-left: 2em;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .circle-container{
+    max-width: 10em;
+    height: 10em;
+
+    .number{
+      font-size: 6em;
+    }
+  }
+
+  .meter-title{
+    font-size: 1.125em;
   }
 }

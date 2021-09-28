@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'my-meters',
     loadChildren: () => import('./my-meters/my-meters.module').then( m => m.MyMetersPageModule)
   },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
 ];
 
 @NgModule({

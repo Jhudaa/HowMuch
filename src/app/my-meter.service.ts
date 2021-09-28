@@ -1,4 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
+import { Haptics } from '@capacitor/haptics';
 
 export interface Meter {
   id?: string;
@@ -28,12 +29,17 @@ export class MyMeterService {
     return [...mockMeter];
   }
 
+  /* Make the device vibrate */
+  async hapticsVibrate() {
+    await Haptics.vibrate();
+  };
+  
   /**
    * add +1 to the count
    */
    plusOne(){
     this.count = this.count +1 ;
-    console.log('cliquer sur le add button');
+    this.hapticsVibrate();
     return this.count;
   }
 
@@ -42,7 +48,6 @@ export class MyMeterService {
    */
   removeOne(){
     this.count = this.count - 1 ;
-    console.log('cliquer sur le remove button');
     return this.count;
   }
 
